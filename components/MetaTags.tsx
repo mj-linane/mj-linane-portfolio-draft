@@ -12,6 +12,7 @@ type MetaProps = {
 
 export default function MetaTags({ meta }: { meta: MetaProps }) {
   const router = useRouter()
+  const imageUrl = meta.image?.startsWith('/') ? `https://mjlinane.com${meta.image}` : meta.image;
   return (
     <Head>
       <title>{meta.title}</title>
@@ -23,11 +24,11 @@ export default function MetaTags({ meta }: { meta: MetaProps }) {
       />
       <link rel="canonical" href={`https://mjlinane.com${router.asPath}`} />
       <meta property="og:type" content={meta.type} />
-      <meta property="og:image" content={meta.image} />
+      <meta property="og:image" content={imageUrl} />
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:title" content="@mjlinane" />
       <meta property="twitter:description" content={meta.description} />
-      <meta property="twitter:image" content={meta.image} />
+      <meta property="twitter:image" content={imageUrl} />
       {meta.date && (
         <meta property="article:published_time" content={meta.date} />
       )}

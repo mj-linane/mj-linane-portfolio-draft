@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 
 import Container from '@/components/Container'
 import Layout from '@/components/Layout'
+import NavBar from '@/components/NavBar'
 import PostBody from '@/components/PostBody'
 import PostHeader from '@/components/PostHeader'
 import PostTitle from '@/components/PostTitle'
@@ -26,7 +27,7 @@ export default function Post({ post }: Props) {
   return (
     <Layout>
       <Container>
-        {/*<Header />*/}
+        <NavBar /> {/* */}
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
